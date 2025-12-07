@@ -1,0 +1,13 @@
+<html>
+<head>
+<title>Виды тапиров</title>
+<link rel="stylesheet" href="test.css">
+</head>
+<body>
+<h1 align="center">Виды тапиров</h1>
+<h2></h2>
+<p align="justify">
+
+</p>
+</body>
+</html>
