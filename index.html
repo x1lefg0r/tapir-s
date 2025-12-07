@@ -1,28 +1,492 @@
-<html>
-<head>
-<title>Главная</title>
-<link rel="stylesheet" href="test.css">
-</head>
-<body>
-<h1 align="center">Тапиры</h1>
-<h3>Внешний вид</h3>
-<p align="justify">
-Тапи́ры — травоядные животные из отряда непарнокопытных, несколько напоминающие по облику свинью, но в отличие 
-от неё обладающие коротким, приспособленным для хватания хоботом. Размеры тапиров различаются от вида к виду, 
-но как правило,<img src="Рис/tapir_anta1.jpg" hspace="10" vspase="10" width="400" height="300" align="right"> длина тапира около 2 м, хвоста — 7-13 см, высота в холке около 1 м, масса от 110 до 300 кг. 
-Продолжительность жизни на воле составляет около 30 лет.  Передние ноги у тапиров четырёхпалые, а задние трёхпалые, 
-на пальцах небольшие копытца, помогающие передвигаться по грязной и мягкой земле.
-Верхняя губа тапира вместе с вытянутым носом образует небольшой, но очень подвижный хоботок, который оканчивается пятачком, 
-окружённым короткими чувствительными волосками. 
-</p>
-<h3>Поведение</h3>
-<p align="justify">
-Тапиры — лесные животные, любящие воду. В лесах тапиры поедают фрукты, 
-листья и ягоды.  Хотя многие из них живут в лесах на суше, тапиры, обитающие вблизи рек и озёр,
-проводят много времени в воде и под водой, питаясь мягкими водными растениями и прячась от хищников. 
-Бразильский тапир часто опускается на дно реки и затем кормится, двигаясь по её руслу. Три вида тапиров, 
-обитающие на равнинах, как правило, ведут ночной или сумеречный образ жизни. 
-Более мелкий горный тапир, обитающий в Андах, ведет в основном дневной образ жизни.
-</p>
-</body>
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Тапиры - Удивительные животные</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background: #e0e5ec;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in-up {
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+
+      .delay-1 {
+        animation-delay: 0.2s;
+        opacity: 0;
+      }
+      .delay-2 {
+        animation-delay: 0.4s;
+        opacity: 0;
+      }
+      .delay-3 {
+        animation-delay: 0.6s;
+        opacity: 0;
+      }
+
+      .neomorph {
+        background: #e0e5ec;
+        box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
+          -9px -9px 16px rgba(255, 255, 255, 0.5);
+        border-radius: 20px;
+      }
+
+      .neomorph-inset {
+        background: #e0e5ec;
+        box-shadow: inset 6px 6px 12px rgba(163, 177, 198, 0.5),
+          inset -6px -6px 12px rgba(255, 255, 255, 0.5);
+        border-radius: 20px;
+      }
+
+      .neomorph-card {
+        background: #e0e5ec;
+        box-shadow: 6px 6px 12px rgba(163, 177, 198, 0.6),
+          -6px -6px 12px rgba(255, 255, 255, 0.5);
+        border-radius: 20px;
+        transition: all 0.3s ease;
+      }
+
+      .neomorph-card:hover {
+        box-shadow: 12px 12px 24px rgba(163, 177, 198, 0.6),
+          -12px -12px 24px rgba(255, 255, 255, 0.5);
+        transform: translateY(-2px);
+      }
+
+      .neomorph-button {
+        background: #e0e5ec;
+        box-shadow: 4px 4px 8px rgba(163, 177, 198, 0.6),
+          -4px -4px 8px rgba(255, 255, 255, 0.5);
+        border-radius: 15px;
+        transition: all 0.3s ease;
+      }
+
+      .neomorph-button:hover {
+        box-shadow: 2px 2px 4px rgba(163, 177, 198, 0.6),
+          -2px -2px 4px rgba(255, 255, 255, 0.5);
+      }
+
+      .neomorph-button:active {
+        box-shadow: inset 3px 3px 6px rgba(163, 177, 198, 0.5),
+          inset -3px -3px 6px rgba(255, 255, 255, 0.5);
+      }
+    </style>
+  </head>
+  <body class="min-h-screen">
+    <!-- Навигация -->
+    <nav class="sticky top-4 z-50 px-6 py-4">
+      <div class="container mx-auto">
+        <div class="neomorph flex gap-8 justify-center items-center px-8 py-5">
+          <a
+            href="#home"
+            onclick="showPage('home')"
+            class="neomorph-button px-6 py-3 text-gray-700 font-semibold hover:text-gray-900 transition-colors duration-300 cursor-pointer"
+          >
+            Главная
+          </a>
+          <a
+            href="#species"
+            onclick="showPage('species')"
+            class="neomorph-button px-6 py-3 text-gray-700 font-semibold hover:text-gray-900 transition-colors duration-300 cursor-pointer"
+          >
+            Виды тапиров
+          </a>
+          <a
+            href="#zoos"
+            onclick="showPage('zoos')"
+            class="neomorph-button px-6 py-3 text-gray-700 font-semibold hover:text-gray-900 transition-colors duration-300 cursor-pointer"
+          >
+            Зоопарки
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Главная страница -->
+    <div id="home" class="page">
+      <!-- Герой секция -->
+      <div class="container mx-auto px-6 py-16">
+        <div class="neomorph p-12">
+          <h1
+            class="text-6xl font-bold text-center mb-6 text-gray-800 fade-in-up"
+          >
+            Удивительный мир тапиров
+          </h1>
+          <p
+            class="text-xl text-center max-w-3xl mx-auto text-gray-600 fade-in-up delay-1"
+          >
+            Познакомьтесь с древнейшими млекопитающими планеты
+          </p>
+        </div>
+      </div>
+
+      <div class="container mx-auto px-6 pb-12">
+        <!-- Внешний вид -->
+        <div class="neomorph-card p-8 mb-8 fade-in-up delay-2">
+          <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">Внешний вид</h2>
+              <p class="text-gray-600 leading-relaxed text-justify">
+                Тапи́ры — травоядные животные из отряда непарнокопытных,
+                несколько напоминающие по облику свинью, но в отличие от неё
+                обладающие коротким, приспособленным для хватания хоботом.
+                Размеры тапиров различаются от вида к виду, но как правило,
+                длина тапира около 2 м, хвоста — 7-13 см, высота в холке около 1
+                м, масса от 110 до 300 кг.
+              </p>
+              <p class="text-gray-600 leading-relaxed text-justify mt-4">
+                Продолжительность жизни на воле составляет около 30 лет.
+                Передние ноги у тапиров четырёхпалые, а задние трёхпалые, на
+                пальцах небольшие копытца, помогающие передвигаться по грязной и
+                мягкой земле.
+              </p>
+            </div>
+            <div class="neomorph-inset p-3">
+              <img
+                src="./Рис/tapir_anta1.jpg"
+                alt="Тапир"
+                class="rounded-xl w-full object-cover h-80"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Поведение -->
+        <div class="neomorph-card p-8 mb-8 fade-in-up delay-3">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">Поведение</h2>
+          <p class="text-gray-600 leading-relaxed text-justify mb-4">
+            Тапиры — лесные животные, любящие воду. В лесах тапиры поедают
+            фрукты, листья и ягоды. Хотя многие из них живут в лесах на суше,
+            тапиры, обитающие вблизи рек и озёр, проводят много времени в воде и
+            под водой, питаясь мягкими водными растениями и прячась от хищников.
+          </p>
+          <p class="text-gray-600 leading-relaxed text-justify">
+            Три вида тапиров, обитающие на равнинах, как правило, ведут ночной
+            или сумеречный образ жизни. Более мелкий горный тапир, обитающий в
+            Андах, ведет в основном дневной образ жизни.
+          </p>
+        </div>
+
+        <!-- Интересные факты -->
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="neomorph-card p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-3">Любители воды</h3>
+            <p class="text-gray-600">
+              Тапиры отлично плавают и могут ходить по дну водоёмов
+            </p>
+          </div>
+          <div class="neomorph-card p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-3">
+              Древние животные
+            </h3>
+            <p class="text-gray-600">
+              Ископаемые тапиры датируются 55 миллионами лет
+            </p>
+          </div>
+          <div class="neomorph-card p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-3">
+              Уникальный хобот
+            </h3>
+            <p class="text-gray-600">
+              Подвижный хоботок помогает захватывать пищу
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Страница видов -->
+    <div id="species" class="page hidden">
+      <div class="container mx-auto px-6 py-16">
+        <div class="neomorph p-12 mb-8">
+          <h1 class="text-5xl font-bold text-center mb-4 text-gray-800">
+            Виды тапиров
+          </h1>
+          <p class="text-xl text-center text-gray-600">
+            Пять уникальных видов по всему миру
+          </p>
+        </div>
+      </div>
+
+      <div class="container mx-auto px-6 pb-12">
+        <div class="neomorph-card p-8 mb-8">
+          <p class="text-gray-600 leading-relaxed text-justify">
+            Тапиры — сравнительно древние млекопитающие: самые ранние ископаемые
+            тапиры относятся к раннему олигоцену. На сегодняшний день существуют
+            только пять видов: горные тапиры, равнинные тапиры,
+            центральноамериканские тапиры и тапиры кабомани обитают в
+            Центральной и тёплых областях Южной Америки, а чепрачные тапиры в
+            юго-восточной Азии.
+          </p>
+        </div>
+
+        <!-- Чепрачный тапир -->
+        <div class="neomorph-card p-8 mb-8">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                Чепрачный тапир
+              </h2>
+              <p class="text-sm text-gray-500 font-semibold mb-4">
+                Единственный азиатский вид
+              </p>
+              <p class="text-gray-600 leading-relaxed text-justify mb-4">
+                Самый крупный среди тапиров: длина тела 1,8—2,4 м, высота в
+                холке 0,75—1 м, масса 250—320 кг. Максимальный известный вес
+                достигал 540 кг.
+              </p>
+              <p class="text-gray-600 leading-relaxed text-justify">
+                Легко отличим по большому серовато-белому пятну (чепраку) на
+                спине и боках. Несмотря на контрастность, такой окрас является
+                защитным — в темноте тапир словно бы теряется.
+              </p>
+            </div>
+            <div class="neomorph-inset p-3">
+              <img
+                src="./Рис/Chtapir.jpg"
+                alt="Чепрачный тапир"
+                class="rounded-xl w-full object-cover h-80"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Равнинный тапир -->
+        <div class="neomorph-card p-8 mb-8">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="neomorph-inset p-3 order-2 md:order-1">
+              <img
+                src="./Рис/Rtapir.jpg"
+                alt="Равнинный тапир"
+                class="rounded-xl w-full object-cover h-80"
+              />
+            </div>
+            <div class="order-1 md:order-2">
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                Равнинный тапир
+              </h2>
+              <p class="text-sm text-gray-500 font-semibold mb-4">
+                Самый распространённый вид
+              </p>
+              <p class="text-gray-600 leading-relaxed text-justify mb-4">
+                Населяет равнинные области Южной Америки. Достигают веса от 150
+                до 270 кг, длина тела может доходить до 220 см.
+              </p>
+              <p class="text-gray-600 leading-relaxed text-justify">
+                Характерна небольшая грива на затылке. Шерсть на спине
+                чёрно-коричневая, а грудь, живот и ноги тёмно-коричневые.
+                Типичны белые края ушей.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Горный тапир -->
+        <div class="neomorph-card p-8 mb-8">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                Горный тапир
+              </h2>
+              <p class="text-sm text-red-500 font-semibold mb-4">
+                Под угрозой исчезновения
+              </p>
+              <p class="text-gray-600 leading-relaxed text-justify mb-4">
+                Вид с самой маленькой областью распространения, встречаются
+                только в Андах. Живут в горных лесах вплоть до высоты 4500 м над
+                уровнем моря.
+              </p>
+              <p class="text-gray-600 leading-relaxed text-justify">
+                Кожа покрыта густой шерстью, которая служит защите от холода и
+                ультрафиолетового излучения. Популяция оценивается всего в 2500
+                животных.
+              </p>
+            </div>
+            <div class="neomorph-inset p-3">
+              <img
+                src="./Рис/Gtapir.jpg"
+                alt="Горный тапир"
+                class="rounded-xl w-full object-cover h-80"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Центральноамериканский тапир -->
+        <div class="neomorph-card p-8 mb-8">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="neomorph-inset p-3 order-2 md:order-1">
+              <img
+                src="./Рис/Ctapir.jpg"
+                alt="Центральноамериканский тапир"
+                class="rounded-xl w-full object-cover h-80"
+              />
+            </div>
+            <div class="order-1 md:order-2">
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                Центральноамериканский тапир
+              </h2>
+              <p class="text-sm text-gray-500 font-semibold mb-4">
+                Тапир Бэрда
+              </p>
+              <p class="text-gray-600 leading-relaxed text-justify mb-4">
+                Самый крупный тапир Нового Света и крупнейшее дикое
+                млекопитающее американских тропиков. Высота в холке достигает
+                120 см, вес до 300 кг.
+              </p>
+              <p class="text-gray-600 leading-relaxed text-justify">
+                Численность оценивается меньше 5000 особей. Основная причина
+                сокращения — уничтожение тропических лесов.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Тапир кабомани -->
+        <div class="neomorph-card p-8 mb-8">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                Тапир кабомани
+              </h2>
+              <p class="text-sm text-gray-500 font-semibold mb-4">
+                Самый маленький и самый молодой вид
+              </p>
+              <p class="text-gray-600 leading-relaxed text-justify mb-4">
+                Самые маленькие тапиры: длина около 1,3 м, высота 0,9 м, вес
+                около 110 кг. Окрас тёмно-серый или тёмно-коричневый.
+              </p>
+              <p class="text-gray-600 leading-relaxed text-justify">
+                Уникальная история открытия: впервые обнаружен в 1914 году, но
+                ошибочно отнесён к равнинным тапирам. Заново открыт только в
+                2013 году с помощью фотоловушек!
+              </p>
+            </div>
+            <div class="neomorph-inset p-3">
+              <img
+                src="./Рис/Ktapir.jpg"
+                alt="Тапир кабомани"
+                class="rounded-xl w-full object-cover h-80"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Страница зоопарков -->
+    <div id="zoos" class="page hidden">
+      <div class="container mx-auto px-6 py-16">
+        <div class="neomorph p-12 mb-8">
+          <h1 class="text-5xl font-bold text-center mb-4 text-gray-800">
+            Тапиры в зоопарках
+          </h1>
+          <p class="text-xl text-center text-gray-600">
+            Где можно увидеть этих удивительных животных
+          </p>
+        </div>
+      </div>
+
+      <div class="container mx-auto px-6 pb-12">
+        <div class="neomorph-card p-8 mb-8">
+          <p class="text-gray-600 leading-relaxed text-justify mb-6">
+            На сегодняшний день в 60 зоопарках мира содержатся чуть более 180
+            чепрачных тапиров, в то время как более 500 равнинных распределены
+            по примерно 200 зоопаркам. Также в зоопарках можно встретить тапиров
+            Бэрда.
+          </p>
+        </div>
+
+        <div class="neomorph-card p-8 mb-8">
+          <h2 class="text-3xl font-bold text-gray-800 mb-6">Тапиры в России</h2>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            В российских зоопарках можно найти только равнинных тапиров, так как
+            они самые распространённые и наиболее адаптивные к условиям
+            содержания.
+          </p>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="neomorph-inset p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">Москва</h3>
+              <p class="text-gray-600">Московский зоопарк</p>
+            </div>
+            <div class="neomorph-inset p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">Калининград</h3>
+              <p class="text-gray-600">Калининградский зоопарк</p>
+            </div>
+            <div class="neomorph-inset p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Ростов-на-Дону
+              </h3>
+              <p class="text-gray-600">Ростовский зоопарк</p>
+            </div>
+            <div class="neomorph-inset p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">Новосибирск</h3>
+              <p class="text-gray-600">Новосибирский зоопарк</p>
+            </div>
+            <div class="neomorph-inset p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Санкт-Петербург
+              </h3>
+              <p class="text-gray-600">Ленинградский зоопарк</p>
+            </div>
+            <div class="neomorph-inset p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Нижний Новгород
+              </h3>
+              <p class="text-gray-600">Нижегородский зоопарк</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="neomorph-card p-8">
+          <h2 class="text-2xl font-bold text-gray-800 mb-4">Интересный факт</h2>
+          <p class="text-gray-600 leading-relaxed">
+            Тапиры в зоопарках живут дольше, чем в дикой природе — до 35-40 лет!
+            Это связано с регулярным питанием, ветеринарным уходом и отсутствием
+            хищников.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Футер -->
+    <footer class="neomorph mx-6 mb-6 text-gray-700 py-8 mt-12">
+      <div class="container mx-auto px-6 text-center">
+        <p class="text-lg mb-2 font-semibold">Берегите тапиров!</p>
+        <p class="text-sm text-gray-500">
+          Сайт создан с любовью к этим удивительным животным by Пётр Метлин
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      function showPage(pageId) {
+        document.querySelectorAll(".page").forEach((page) => {
+          page.classList.add("hidden");
+        });
+
+        document.getElementById(pageId).classList.remove("hidden");
+
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        showPage("home");
+      });
+    </script>
+  </body>
 </html>
